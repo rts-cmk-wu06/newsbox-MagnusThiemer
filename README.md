@@ -5,7 +5,7 @@ Fra settings panelet skal brugeren have mulighed for at administrere det kategor
 <br>
 
 ### **Varighed:**
-3 uger (12 arbejdsdage)
+3 uger (12 arbejdsdage). Aflevering 3. december
 
 
 ### **Målet med opgaven er:**
