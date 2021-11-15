@@ -6,8 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Newsbox</title>
     <link rel="stylesheet" href="./dist/index.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://kit.fontawesome.com/52431911f6.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    
+    <main>
+        <ul class="Categories" id="categoriesList">
+            <li>
+                <div class="categories__container flex-row space-between align-center">
+                    <div class="flex-row align-center">
+                        <span class="categories__icon-container flex-row align-center center">
+                            <i class="fas fa-dice-d6"></i>
+                        </span>
+                        <h2>World</h2>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <ul id="worldNewsUlElement">
+
+                </ul>
+            </li>
+        </ul>
+    </main>
+
+    <script src="./dist/categories-list.js"></script>
 </body>
 </html>

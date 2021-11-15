@@ -1,0 +1,26 @@
+.Categories {
+
+
+}
+.categories__container{
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-top: 1px solid $ice;
+    border-bottom: 1px solid $ice;
+    h2 {
+        color: $onyx;
+        font-size: 1.2rem;
+    }
+}
+
+.categories__icon-container {
+    height: 2.2rem;
+    width: 2.2rem;
+    background-color: $snow;
+    color: $rust;
+    border-radius: 1.1rem;
+    box-shadow: 4px 4px 10px $fossil;
+    margin-right: 1rem;
+}
