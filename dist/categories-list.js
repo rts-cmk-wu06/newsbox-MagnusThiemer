@@ -1,8 +1,10 @@
 "use strict";
 
 window.addEventListener('DOMContentLoaded', function () {
-  var categories = ['world'
-  /* , 'health', 'sports', 'business', 'travel' */
+  var categories = [
+  /* 'world', 'health', 'sports',  */
+  'business'
+  /* , 'travel' */
   ];
   var visibleCategories;
   var categoriesListElement = document.querySelector('#categoriesList');
@@ -16,27 +18,35 @@ window.addEventListener('DOMContentLoaded', function () {
       var parentContainer = document.querySelector("#".concat(category, "NewsUlElement"));
       var newsArray = data.data.results;
       newsArray.forEach(function (newsObject) {
+        console.log(newsObject.url);
         /* console.log(newsObject); */
+
         var li = document.createElement('li');
         li.classList.add('Card');
         var deleteButtonContainer = document.createElement('div');
+        deleteButtonContainer.classList.add('card__save-button', 'flex-row', 'center', 'align-center');
         var deleteIcon = document.createElement('i');
-        deleteIcon.classList.add('fas', 'fa-trash');
+        deleteIcon.classList.add('far', 'fa-hdd');
         deleteButtonContainer.appendChild(deleteIcon);
         li.appendChild(deleteButtonContainer);
         var a = document.createElement('a');
+        a.href = newsObject.url;
+        a.classList.add('flex-row', 'align-center');
         var imgContainer = document.createElement('div');
         imgContainer.classList.add('card__img-container');
         var img = document.createElement('img');
         img.src = newsObject.multimedia[0].url;
-        console.log(newsObject.multimedia[0].url);
         var article = document.createElement('article');
         var headline = document.createElement('h3');
+        var p = document.createElement('p');
+        p.textContent = newsObject["abstract"];
         headline.textContent = newsObject.title;
+        console.log(newsObject);
         imgContainer.appendChild(img);
         article.appendChild(headline);
-        a.appendChild(imgContainer);
+        article.appendChild(p);
         a.appendChild(article);
+        a.appendChild(imgContainer);
         li.appendChild(a);
         parentContainer.appendChild(li);
       });
