@@ -12,12 +12,10 @@ window.addEventListener('DOMContentLoaded', function () {
   categories.forEach(function (category) {
     var url = "https://api.nytimes.com/svc/topstories/v2/".concat(category, ".json?api-key=GJ1TlurjYAYhgVBgJNPPGnQ5rr9rNkm7");
     axios.get(url).then(function (data) {
-      console.log(category);
       var parentContainer = document.querySelector("#".concat(category, "NewsUlElement"));
       var newsArray = data.data.results;
       newsArray.forEach(function (newsObject) {
         if (newsObject.section) {
-          console.log(newsObject);
           var li = document.createElement('li');
           li.classList.add('Card');
           var deleteButtonContainer = document.createElement('div');

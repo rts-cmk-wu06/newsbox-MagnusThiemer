@@ -12,12 +12,10 @@ window.addEventListener('DOMContentLoaded', () => {
         let url = `https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=GJ1TlurjYAYhgVBgJNPPGnQ5rr9rNkm7`
         axios.get(url)
         .then(data => {  
-            console.log(category)
             let parentContainer = document.querySelector(`#${category}NewsUlElement`);
             let newsArray = data.data.results;
             newsArray.forEach(newsObject => {
                 if(newsObject.section){
-                    console.log(newsObject);
                     let li = document.createElement('li');
                     li.classList.add('Card')
     
