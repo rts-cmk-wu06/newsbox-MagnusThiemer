@@ -1,0 +1,58 @@
+.Card {
+    display: grid;
+    grid-template-columns: 5rem 1fr 5rem;
+    align-items: center;
+    height: 5rem;
+    overflow: hidden;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $ice;
+    a {
+        display: grid;
+        grid-template-columns: 5rem 1fr;
+        grid-column: 1 / 4;
+        grid-row: 1 / 2;
+        width: 100%;
+        background-color: $snow;
+    }
+    .card__img-container {
+        height: 4rem;
+        min-width: 4rem;
+        border-radius: 2rem;
+        overflow: hidden;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+
+    img {
+        min-height: 100%;
+        min-width: 100%;
+        object-fit: cover;
+    }
+    article {
+        height: 5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        h3 {
+            font-size: 0.8rem;
+            color: $onyx;
+            margin-bottom: 0.3rem;
+        }
+        p {
+            color: $fossil;
+            font-size: 0.8rem;
+        }
+    }
+    .card__save-button{
+        background-color: $sage;
+        height: 5rem;
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+        i {
+            color: $snow;
+            font-size: 1.2rem;
+        }
+    }
+}

@@ -1,4 +1,5 @@
 // variables & functions
+@import 'variables';
 
 // base & layout
 @import 'base';
@@ -7,6 +8,8 @@
 @import 'colors';
 
 // componenets
+@import 'components/categories';
+@import 'components/card';
 
 // utilities
 @import 'utilities';

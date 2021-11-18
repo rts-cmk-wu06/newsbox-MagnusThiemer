@@ -12,6 +12,10 @@
     justify-content: space-between;
 }
 
+.center {
+    justify-content: center;
+}
+
 .align-center {
     align-items: center;
 }
@@ -22,4 +26,8 @@
 
 .align-flex-end {
     align-items: flex-end;
+}
+
+.hidden {
+    display: none;
 }
