@@ -1,12 +1,6 @@
 
 window.addEventListener('DOMContentLoaded', () => {
-    let categories = ['world'/* , 'science', 'sports', 'business', 'arts' */];
-    let visibleCategories;
-    const categoriesListElement = document.querySelector('#categoriesList');
-
-    if(localStorage.getItem('visibleCategories')){
-        visibleCategories = JSON.parse(localStorage.getItem('visibleCategories'))
-    }
+    let categories = ['world', 'science', 'sports', 'business', 'arts'];
 
     categories.forEach(category => {
         let url = `https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=GJ1TlurjYAYhgVBgJNPPGnQ5rr9rNkm7`
