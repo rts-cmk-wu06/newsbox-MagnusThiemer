@@ -29,5 +29,4 @@ container.addEventListener('touchend', (event) => {
     } else {
         moveTarget.style.transform = `translateX(0)`;
     }
-    console.log(moveTarget.style)
 })

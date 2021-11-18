@@ -18,13 +18,14 @@ window.addEventListener('DOMContentLoaded', () => {
                 if(newsObject.section){
                     let li = document.createElement('li');
                     li.classList.add('Card')
+                    li.id = newsObject.short_url.replace('https://nyti.ms/', 'id_');
     
-                    let deleteButtonContainer = document.createElement('div');
-                    deleteButtonContainer.classList.add('card__save-button', 'flex-row', 'center', 'align-center');
+                    let saveButtonContainer = document.createElement('div');
+                    saveButtonContainer.classList.add('card__save-button', 'flex-row', 'center', 'align-center');
                     let deleteIcon = document.createElement('i');
-                    deleteIcon.classList.add('far', 'fa-hdd');
-                    deleteButtonContainer.appendChild(deleteIcon);
-                    li.appendChild(deleteButtonContainer);
+                    deleteIcon.classList.add('far', 'fa-hdd', 'card__save-button-icon');
+                    saveButtonContainer.appendChild(deleteIcon);
+                    li.appendChild(saveButtonContainer);
     
                     let a = document.createElement('a');
                     a.href = newsObject.url;
