@@ -1,6 +1,6 @@
 
 window.addEventListener('DOMContentLoaded', () => {
-    let categories = ['world', 'science', 'sports', 'business', 'arts'];
+    let categories = ['world'/* , 'science', 'sports', 'business', 'arts' */];
     let visibleCategories;
     const categoriesListElement = document.querySelector('#categoriesList');
 
