@@ -1,5 +1,6 @@
 .Settings {
     background-color: $ice;
+    min-height: 100vh;
     h2 {
         padding-top: 2rem;
         text-align: center;
@@ -53,4 +54,16 @@
         background-color: $snow;
         box-shadow: 2px 2px 6px $slate;
     }
+}
+
+.settings__button {
+    border: 1px solid $fossil;
+    padding: 0.8rem;
+    border-radius: 2rem;
+    color: $onyx;
+    width: fit-content;
+    margin: 4rem auto;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 0.8rem;
 }
