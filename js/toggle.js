@@ -6,7 +6,6 @@ window.addEventListener('DOMContentLoaded', () => {
             let ulElement = document.querySelector(`#${eventTarget}UlElement`);
             ulElement.classList.toggle('hidden');
             let icon = element.querySelector('.arrow');
-            console.log(icon);
             if(icon.classList.contains('fa-chevron-down')){
                 icon.classList.remove('fa-chevron-down');
                 icon.classList.add('fa-chevron-right')

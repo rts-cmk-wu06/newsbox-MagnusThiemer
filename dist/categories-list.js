@@ -1,7 +1,9 @@
 "use strict";
 
 window.addEventListener('DOMContentLoaded', function () {
-  var categories = ['world', 'science', 'sports', 'business', 'arts'];
+  var categories = ['world'
+  /* , 'science', 'sports', 'business', 'arts' */
+  ];
   var visibleCategories;
   var categoriesListElement = document.querySelector('#categoriesList');
 
@@ -18,12 +20,13 @@ window.addEventListener('DOMContentLoaded', function () {
         if (newsObject.section) {
           var li = document.createElement('li');
           li.classList.add('Card');
-          var deleteButtonContainer = document.createElement('div');
-          deleteButtonContainer.classList.add('card__save-button', 'flex-row', 'center', 'align-center');
+          li.id = newsObject.short_url.replace('https://nyti.ms/', 'id_');
+          var saveButtonContainer = document.createElement('div');
+          saveButtonContainer.classList.add('card__save-button', 'flex-row', 'center', 'align-center');
           var deleteIcon = document.createElement('i');
-          deleteIcon.classList.add('far', 'fa-hdd');
-          deleteButtonContainer.appendChild(deleteIcon);
-          li.appendChild(deleteButtonContainer);
+          deleteIcon.classList.add('far', 'fa-hdd', 'card__save-button-icon');
+          saveButtonContainer.appendChild(deleteIcon);
+          li.appendChild(saveButtonContainer);
           var a = document.createElement('a');
           a.href = newsObject.url;
           a.classList.add('flex-row', 'align-center');
