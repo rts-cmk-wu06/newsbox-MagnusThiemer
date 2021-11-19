@@ -29,8 +29,9 @@ window.addEventListener('DOMContentLoaded', function () {
 
           if (newsObject.multimedia) {
             img.src = newsObject.multimedia[0].url;
+            imgContainer.appendChild(img);
           } else {
-            imgContainer.style.backgroundColor = '#324755';
+            imgContainer.style.background = 'linear-gradient(0deg, rgba(110,140,160,1) 0%, rgba(135,188,191,1) 100%)';
           }
 
           var article = document.createElement('article');
@@ -38,7 +39,6 @@ window.addEventListener('DOMContentLoaded', function () {
           var p = document.createElement('p');
           p.textContent = newsObject["abstract"];
           headline.textContent = newsObject.title;
-          imgContainer.appendChild(img);
           article.appendChild(headline);
           article.appendChild(p);
           a.appendChild(article);
