@@ -22,7 +22,6 @@ window.addEventListener('DOMContentLoaded', function () {
     savedArticles = savedArticles.filter(function (article) {
       return article.id != elementId;
     });
-    console.log(savedArticles);
     localStorage.setItem('savedArticles', JSON.stringify(savedArticles));
     article.classList.add('animate__animated', 'animate__fadeOutDown', 'animate__fast');
     setTimeout(function () {
