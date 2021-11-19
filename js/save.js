@@ -2,13 +2,12 @@ window.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('#categoriesList');
     let savedArticles = [];
 
-/*     if(localStorage.getItem('savedArticles')){
+    if(localStorage.getItem('savedArticles')){
         savedArticles = JSON.parse(localStorage.getItem('savedArticles'));
-    } */
+    }
 
     container.addEventListener('click', event => {
         if(event.target.classList.contains('card__save-button')){
-            console.log('click')
             save(event.target.parentNode.id)
         } else if (event.target.classList.contains('card__save-button-icon')){
             save(event.target.parentNode.parentNode.id)

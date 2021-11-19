@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
     categories.forEach(category => {
         let url = `https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=GJ1TlurjYAYhgVBgJNPPGnQ5rr9rNkm7`
         axios.get(url)
-        .then(data => {  
+        .then(data => {
             let parentContainer = document.querySelector(`#${category}NewsUlElement`);
             let newsArray = data.data.results;
             newsArray.forEach(newsObject => {
@@ -26,7 +26,13 @@ window.addEventListener('DOMContentLoaded', () => {
                     let imgContainer = document.createElement('div');
                     imgContainer.classList.add('card__img-container')
                     let img = document.createElement('img');
-                    img.src = newsObject.multimedia[0].url;
+
+                    if(newsObject.multimedia){
+                        img.src = newsObject.multimedia[0].url; 
+                    } else {
+                        imgContainer.style.backgroundColor = '#324755';
+                    }
+
                     let article = document.createElement('article');
                     let headline = document.createElement('h3');
                     let p = document.createElement('p');
@@ -42,8 +48,19 @@ window.addEventListener('DOMContentLoaded', () => {
                     li.appendChild(a);
                     parentContainer.appendChild(li)
                 }
-
-            })
+            });
+            if(localStorage.getItem('savedArticles')){
+                let savedArticles = JSON.parse(localStorage.getItem('savedArticles'));
+                savedArticles.forEach(item => removeSavedArticles(item));
+            }
+        
+            function removeSavedArticles(item){
+                if(document.querySelector(`#${item.id}`)){
+                    let deleteItem = document.querySelector(`#${item.id}`);
+                    deleteItem.parentNode.removeChild(deleteItem)
+                }
+            }
         });
+
     })
 })
