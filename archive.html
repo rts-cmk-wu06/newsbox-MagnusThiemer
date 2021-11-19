@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive</title>
+    <link rel="stylesheet" href="./dist/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://kit.fontawesome.com/52431911f6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="Header flex-row space-between align-center">
+        <a href="index.html" class="">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+        <h1 class="">Archive</h1>
+        <a href="settings.html">
+            <i class="fas fa-cog"></i>
+        </a>
+    </header>
+    <main>
+        <ul class="Categories" id="categoriesList">
+            <!-- WORLD NEWS -->
+            <li>
+                <div class="categories__container flex-row space-between align-center" id="worldNews">
+                    <div class="flex-row align-center">
+                        <span class="categories__icon-container flex-row align-center center">
+                            <i class="fas fa-dice-d6"></i>
+                        </span>
+                        <h2>World</h2>
+                    </div>
+                    <i class="arrow fas fa-chevron-right"></i>
+                </div>
+                <ul id="worldNewsUlElement"></ul>
+            </li>
+            <!-- Science NEWS -->
+            <li>
+                <div class="categories__container flex-row space-between align-center" id="scienceNews">
+                    <div class="flex-row align-center">
+                        <span class="categories__icon-container flex-row align-center center">
+                            <i class="fas fa-dice-d6"></i>
+                        </span>
+                        <h2>Science</h2>
+                    </div>
+                    <i class="arrow fas fa-chevron-right"></i>
+                </div>
+                <ul id="scienceNewsUlElement"></ul>
+            </li>
+            <!-- SPORTS NEWS -->
+            <li>
+                <div class="categories__container flex-row space-between align-center" id="sportsNews">
+                    <div class="flex-row align-center">
+                        <span class="categories__icon-container flex-row align-center center">
+                            <i class="fas fa-dice-d6"></i>
+                        </span>
+                        <h2>Sports</h2>
+                    </div>
+                    <i class="arrow fas fa-chevron-right"></i>
+                </div>
+                <ul id="sportsNewsUlElement"></ul>
+            </li>
+            <!-- BUSINESS NEWS -->
+            <li>
+                <div class="categories__container flex-row space-between align-center" id="businessNews">
+                    <div class="flex-row align-center">
+                        <span class="categories__icon-container flex-row align-center center">
+                            <i class="fas fa-dice-d6"></i>
+                        </span>
+                        <h2>Business</h2>
+                    </div>
+                    <i class="arrow fas fa-chevron-right"></i>
+                </div>
+                <ul id="businessNewsUlElement"></ul>
+            </li>
+            <!-- ARTS NEWS -->
+            <li>
+                <div class="categories__container flex-row space-between align-center" id="artsNews">
+                    <div class="flex-row align-center">
+                        <span class="categories__icon-container flex-row align-center center">
+                            <i class="fas fa-dice-d6"></i>
+                        </span>
+                        <h2>Arts</h2>
+                    </div>
+                    <i class="arrow fas fa-chevron-right"></i>
+                </div>
+                <ul id="artsNewsUlElement"></ul>
+            </li>
+        </ul>
+    </main>
+    <script src="./dist/archive-list.js"></script>
+    <script src="./dist/toggle.js"></script>
+    <script src="./dist/swipe.js"></script>
+    <script src="./dist/save.js"></script>
+    <script src="./dist/setIndexPageLoadVisibility.js"></script>
+</body>
+</html>

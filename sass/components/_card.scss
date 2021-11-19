@@ -55,4 +55,14 @@
             font-size: 1.2rem;
         }
     }
+    .card__delete-button{
+        background-color: $danger;
+        height: 5rem;
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+        i {
+            color: $snow;
+            font-size: 1.2rem;
+        }
+    }
 }

@@ -1,7 +1,9 @@
 "use strict";
 
 window.addEventListener('DOMContentLoaded', function () {
-  var categories = ['world', 'science', 'sports', 'business', 'arts'];
+  var categories = ['world'
+  /* , 'science', 'sports', 'business', 'arts' */
+  ];
   categories.forEach(function (category) {
     var url = "https://api.nytimes.com/svc/topstories/v2/".concat(category, ".json?api-key=GJ1TlurjYAYhgVBgJNPPGnQ5rr9rNkm7");
     axios.get(url).then(function (data) {
