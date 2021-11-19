@@ -1,7 +1,9 @@
 "use strict";
 
 window.addEventListener('DOMContentLoaded', function () {
-  var categories = ['world', 'science', 'sports', 'business', 'arts'];
+  var categories = ['world'
+  /* , 'science', 'sports', 'business', 'arts' */
+  ];
   categories.forEach(function (category) {
     var url = "https://api.nytimes.com/svc/topstories/v2/".concat(category, ".json?api-key=GJ1TlurjYAYhgVBgJNPPGnQ5rr9rNkm7");
     axios.get(url).then(function (data) {
@@ -24,13 +26,19 @@ window.addEventListener('DOMContentLoaded', function () {
           var imgContainer = document.createElement('div');
           imgContainer.classList.add('card__img-container');
           var img = document.createElement('img');
-          img.src = newsObject.multimedia[0].url;
+
+          if (newsObject.multimedia) {
+            img.src = newsObject.multimedia[0].url;
+            imgContainer.appendChild(img);
+          } else {
+            imgContainer.style.background = 'linear-gradient(0deg, rgba(110,140,160,1) 0%, rgba(135,188,191,1) 100%)';
+          }
+
           var article = document.createElement('article');
           var headline = document.createElement('h3');
           var p = document.createElement('p');
           p.textContent = newsObject["abstract"];
           headline.textContent = newsObject.title;
-          imgContainer.appendChild(img);
           article.appendChild(headline);
           article.appendChild(p);
           a.appendChild(article);
@@ -39,6 +47,20 @@ window.addEventListener('DOMContentLoaded', function () {
           parentContainer.appendChild(li);
         }
       });
+
+      if (localStorage.getItem('savedArticles')) {
+        var savedArticles = JSON.parse(localStorage.getItem('savedArticles'));
+        savedArticles.forEach(function (item) {
+          return removeSavedArticles(item);
+        });
+      }
+
+      function removeSavedArticles(item) {
+        if (document.querySelector("#".concat(item.id))) {
+          var deleteItem = document.querySelector("#".concat(item.id));
+          deleteItem.parentNode.removeChild(deleteItem);
+        }
+      }
     });
   });
 });

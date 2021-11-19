@@ -4,27 +4,21 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if(localStorage.getItem('savedArticles')){
         savedArticles = JSON.parse(localStorage.getItem('savedArticles'));
+        console.log(savedArticles);
     }
 
     container.addEventListener('click', event => {
-        if(event.target.classList.contains('card__save-button')){
+        if(event.target.classList.contains('card__delete-button')){
             save(event.target.parentNode.id)
-        } else if (event.target.classList.contains('card__save-button-icon')){
+        } else if (event.target.classList.contains('card__delete-button-icon')){
             save(event.target.parentNode.parentNode.id)
         }
     })
 
     function save(elementId){
         let article = document.querySelector(`#${elementId}`);
-
-        let articleObject = {
-            id: article.id,
-            parentId: article.parentNode.id,
-            class: article.classList[0],
-            innerHTML: article.innerHTML
-        }
-
-        savedArticles.push(articleObject);
+        savedArticles = savedArticles.filter(article => article.id != elementId);
+        console.log(savedArticles);
 
         localStorage.setItem('savedArticles', JSON.stringify(savedArticles));
 
