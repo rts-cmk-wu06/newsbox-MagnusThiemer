@@ -12,6 +12,8 @@ window.addEventListener('DOMContentLoaded', () => {
                     let li = document.createElement('li');
                     li.classList.add('Card')
                     li.id = newsObject.short_url.replace('https://nyti.ms/', 'id_');
+                    li.setAttribute('section', newsObject.section);
+                    li.setAttribute('subsection', newsObject.subsection);
     
                     let saveButtonContainer = document.createElement('div');
                     saveButtonContainer.classList.add('card__save-button', 'flex-row', 'center', 'align-center');

@@ -5,7 +5,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
   if (localStorage.getItem('visibleCategories')) {
     visibleCategories = JSON.parse(localStorage.getItem('visibleCategories'));
-    console.log(visibleCategories);
   }
 
   ;
