@@ -1,0 +1,22 @@
+.Search {
+    .search__form {
+        width: 70%;
+        margin: 0 auto;
+        background-color: $ice;
+        padding: 0.8rem 0.8rem;
+        border-radius: 3px;
+    }
+    input {
+        flex-basis: 80%;
+        background: none;
+        border: none;
+    };
+    button {
+        background: none;
+        border: none;
+        color: $fossil;
+    }
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+
+}

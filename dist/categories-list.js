@@ -1,9 +1,7 @@
 "use strict";
 
 window.addEventListener('DOMContentLoaded', function () {
-  var categories = ['world'
-  /* , 'science', 'sports', 'business', 'arts' */
-  ];
+  var categories = ['world', 'science', 'sports', 'business', 'arts'];
   categories.forEach(function (category) {
     var url = "https://api.nytimes.com/svc/topstories/v2/".concat(category, ".json?api-key=GJ1TlurjYAYhgVBgJNPPGnQ5rr9rNkm7");
     axios.get(url).then(function (data) {
@@ -14,6 +12,8 @@ window.addEventListener('DOMContentLoaded', function () {
           var li = document.createElement('li');
           li.classList.add('Card');
           li.id = newsObject.short_url.replace('https://nyti.ms/', 'id_');
+          li.setAttribute('section', newsObject.section);
+          li.setAttribute('subsection', newsObject.subsection);
           var saveButtonContainer = document.createElement('div');
           saveButtonContainer.classList.add('card__save-button', 'flex-row', 'center', 'align-center');
           var deleteIcon = document.createElement('i');

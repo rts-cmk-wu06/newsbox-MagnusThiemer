@@ -18,7 +18,6 @@ window.addEventListener('DOMContentLoaded', () => {
     function save(elementId){
         let article = document.querySelector(`#${elementId}`);
         savedArticles = savedArticles.filter(article => article.id != elementId);
-        console.log(savedArticles);
 
         localStorage.setItem('savedArticles', JSON.stringify(savedArticles));
 
