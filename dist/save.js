@@ -20,6 +20,8 @@ window.addEventListener('DOMContentLoaded', function () {
     var article = document.querySelector("#".concat(elementId));
     var articleObject = {
       id: article.id,
+      section: article.section,
+      subsection: article.subsection,
       parentId: article.parentNode.id,
       "class": article.classList[0],
       innerHTML: article.innerHTML

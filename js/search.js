@@ -9,8 +9,6 @@ window.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         if(inputElement.value){
             let search = inputElement.value.toLocaleLowerCase();
-            console.log(articles);
-            console.log(search);
             articles.forEach(article => {
                 let articleText = article.innerText.toLocaleLowerCase();
                 let articleSection = article.getAttribute('section');

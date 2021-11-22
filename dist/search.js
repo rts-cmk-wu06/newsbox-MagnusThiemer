@@ -13,8 +13,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
     if (inputElement.value) {
       var search = inputElement.value.toLocaleLowerCase();
-      console.log(articles);
-      console.log(search);
       articles.forEach(function (article) {
         var articleText = article.innerText.toLocaleLowerCase();
         var articleSection = article.getAttribute('section');
