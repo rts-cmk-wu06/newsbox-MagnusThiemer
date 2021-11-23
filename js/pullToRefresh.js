@@ -1,10 +1,4 @@
 window.addEventListener('DOMContentLoaded', () => {
-/*     let coordinateStart;
-
-    document.addEventListener('touchstart', event => {
-        coordinateStart = event;
-        console.log(coordinateStart);
-    }); */
 let pStart = { x: 0, y: 0 };
 let pStop = { x: 0, y: 0 };
 const refreshElement = document.querySelector('#refreshElement');
@@ -45,12 +39,8 @@ const refreshSpinnerElement = document.querySelector('#refreshSpinnerElement');
             refreshElement.style.height = '0';
             refreshSpinnerElement.style.transform = 'rotate(0)';
         },1000)
+        }
     }
-    }
-
-    function swipeMove(){
-
-    };
 
     function isPullDown(dY, dX) {
     // methods of checking slope, length, direction of line created by swipe action
@@ -63,12 +53,10 @@ const refreshSpinnerElement = document.querySelector('#refreshSpinnerElement');
 
     document.addEventListener("touchstart", function (e) {
         swipeStart(e);
-    },
-    false
+    }, false
     );
     document.addEventListener("touchend", function (e) {
         swipeEnd(e);
-    },
-    false
+    }, false
     );
 })

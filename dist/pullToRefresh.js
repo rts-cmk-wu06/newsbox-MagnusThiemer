@@ -1,12 +1,6 @@
 "use strict";
 
 window.addEventListener('DOMContentLoaded', function () {
-  /*     let coordinateStart;
-  
-      document.addEventListener('touchstart', event => {
-          coordinateStart = event;
-          console.log(coordinateStart);
-      }); */
   var pStart = {
     x: 0,
     y: 0
@@ -56,10 +50,6 @@ window.addEventListener('DOMContentLoaded', function () {
       }, 1000);
     }
   }
-
-  function swipeMove() {}
-
-  ;
 
   function isPullDown(dY, dX) {
     // methods of checking slope, length, direction of line created by swipe action
