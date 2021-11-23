@@ -23,10 +23,11 @@ container.addEventListener('touchmove', (event) => {
         }
     }
 });
-container.addEventListener('touchend', (event) => {
-    if(coordinateMove < coordinateStart - (moveTarget.clientWidth * 0.2)){
-        moveTarget.style.transform = `translateX(-5rem)`;
-    } else {
-        moveTarget.style.transform = `translateX(0)`;
-    }
+container.addEventListener('touchend', () => {
+    if(moveTarget){    
+        if(coordinateMove < coordinateStart - (moveTarget.clientWidth * 0.2)){
+            moveTarget.style.transform = `translateX(-5rem)`;
+        } else {
+            moveTarget.style.transform = `translateX(0)`;
+        }}
 })
