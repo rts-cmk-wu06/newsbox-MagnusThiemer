@@ -11,6 +11,9 @@
     <script src="https://kit.fontawesome.com/52431911f6.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="Refresh flex-row align-center center" id="refreshElement">
+        <i class="fas fa-spinner" id="refreshSpinnerElement"></i>
+    </div>
     <header class="Header flex-row space-between align-center">
         <a href="archive.html" class="">
             <i class="far fa-hdd"></i>
@@ -39,7 +42,7 @@
                         </span>
                         <h2>World</h2>
                     </div>
-                    <i class="arrow fas fa-chevron-right"></i>
+                    <i class="arrow fas fa-chevron-down"></i>
                 </div>
                 <ul id="worldNewsUlElement"></ul>
             </li>
@@ -52,7 +55,7 @@
                         </span>
                         <h2>Science</h2>
                     </div>
-                    <i class="arrow fas fa-chevron-right"></i>
+                    <i class="arrow fas fa-chevron-down"></i>
                 </div>
                 <ul id="scienceNewsUlElement"></ul>
             </li>
@@ -65,7 +68,7 @@
                         </span>
                         <h2>Sports</h2>
                     </div>
-                    <i class="arrow fas fa-chevron-right"></i>
+                    <i class="arrow fas fa-chevron-down"></i>
                 </div>
                 <ul id="sportsNewsUlElement"></ul>
             </li>
@@ -78,7 +81,7 @@
                         </span>
                         <h2>Business</h2>
                     </div>
-                    <i class="arrow fas fa-chevron-right"></i>
+                    <i class="arrow fas fa-chevron-down"></i>
                 </div>
                 <ul id="businessNewsUlElement"></ul>
             </li>
@@ -91,7 +94,7 @@
                         </span>
                         <h2>Arts</h2>
                     </div>
-                    <i class="arrow fas fa-chevron-right"></i>
+                    <i class="arrow fas fa-chevron-down"></i>
                 </div>
                 <ul id="artsNewsUlElement"></ul>
             </li>
@@ -105,5 +108,6 @@
     <script src="./dist/setIndexPageLoadVisibility.js"></script>
     <script src="./dist/search.js"></script>
     <script src="./dist/darkmode.js"></script>
+<!--     <script src="./dist/pullToRefresh.js"></script> -->
 </body>
 </html>

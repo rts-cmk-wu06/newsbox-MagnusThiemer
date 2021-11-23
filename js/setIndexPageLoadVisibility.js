@@ -13,8 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
             let icon = document.querySelector(`#${key}News`).querySelector('.arrow');
             if(!object[key]){
                 ulElement.classList.add('hidden');
-                icon.classList.remove('fa-chevron-right');
-                icon.classList.add('fa-chevron-down');
+                icon.style.transform = 'rotate(-90deg)';
             }
         })
     }

@@ -5,7 +5,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if(localStorage.getItem('darkModeOn')){
         darkModeOn = JSON.parse(localStorage.getItem('darkModeOn'));
-        console.log(darkModeOn)
         };
 
     if(document.querySelector('#darkModeButton')){

@@ -27,10 +27,12 @@ container.addEventListener('touchmove', function (event) {
     }
   }
 });
-container.addEventListener('touchend', function (event) {
-  if (coordinateMove < coordinateStart - moveTarget.clientWidth * 0.2) {
-    moveTarget.style.transform = "translateX(-5rem)";
-  } else {
-    moveTarget.style.transform = "translateX(0)";
+container.addEventListener('touchend', function () {
+  if (moveTarget) {
+    if (coordinateMove < coordinateStart - moveTarget.clientWidth * 0.2) {
+      moveTarget.style.transform = "translateX(-5rem)";
+    } else {
+      moveTarget.style.transform = "translateX(0)";
+    }
   }
 });

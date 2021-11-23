@@ -7,7 +7,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
   if (localStorage.getItem('darkModeOn')) {
     darkModeOn = JSON.parse(localStorage.getItem('darkModeOn'));
-    console.log(darkModeOn);
   }
 
   ;

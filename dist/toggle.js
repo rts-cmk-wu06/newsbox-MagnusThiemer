@@ -9,12 +9,10 @@ window.addEventListener('DOMContentLoaded', function () {
       ulElement.classList.toggle('hidden');
       var icon = element.querySelector('.arrow');
 
-      if (icon.classList.contains('fa-chevron-down')) {
-        icon.classList.remove('fa-chevron-down');
-        icon.classList.add('fa-chevron-right');
+      if (ulElement.classList.contains('hidden')) {
+        icon.style.transform = 'rotate(-90deg)';
       } else {
-        icon.classList.remove('fa-chevron-right');
-        icon.classList.add('fa-chevron-down');
+        icon.style.transform = 'rotate(0)';
       }
     });
   });

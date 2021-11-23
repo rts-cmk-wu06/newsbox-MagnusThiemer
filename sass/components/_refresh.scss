@@ -1,0 +1,12 @@
+.Refresh {
+    text-align: center;
+    border-bottom: 1px solid $ice;
+    height: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    i {
+        color: $fossil;
+        font-size: 2rem;
+        transition: all 1000ms;
+    }
+}
