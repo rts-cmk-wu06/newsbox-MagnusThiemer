@@ -3,12 +3,17 @@
 window.addEventListener('DOMContentLoaded', function () {
   var searchFormElement = document.querySelector('#searchForm');
   var inputElement = searchFormElement.querySelector('input');
+  var searchClearButtonElement = document.querySelector('.search__clear');
+  var articles;
   searchFormElement.addEventListener('submit', function (event) {
     return searchFunction(event);
   });
+  searchClearButtonElement.addEventListener('click', function () {
+    return clearSearchFunction();
+  });
 
   var searchFunction = function searchFunction(event) {
-    var articles = document.querySelectorAll('.Card');
+    articles = document.querySelectorAll('.Card');
     event.preventDefault();
 
     if (inputElement.value) {
@@ -24,8 +29,19 @@ window.addEventListener('DOMContentLoaded', function () {
       });
     } else {
       articles.forEach(function (article) {
-        return article.classList.remove('hidden');
+        return article.classList.add('hidden');
       });
     }
+
+    searchClearButtonElement.style.display = 'block';
+  };
+
+  var clearSearchFunction = function clearSearchFunction() {
+    inputElement.value = '';
+    var hidden = document.querySelectorAll('.hidden');
+    hidden.forEach(function (article) {
+      return article.classList.remove('hidden');
+    });
+    searchClearButtonElement.style.display = 'none';
   };
 });

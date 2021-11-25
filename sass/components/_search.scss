@@ -6,6 +6,10 @@
         padding: 0.8rem 0.8rem;
         border-radius: 3px;
     }
+    .search__clear {
+        color: $drab;
+        display: none;
+    }
     input {
         flex-basis: 80%;
         background: none;

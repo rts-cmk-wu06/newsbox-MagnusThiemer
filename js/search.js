@@ -1,11 +1,14 @@
 window.addEventListener('DOMContentLoaded', () => {
     const searchFormElement = document.querySelector('#searchForm');
     const inputElement = searchFormElement.querySelector('input');
+    const searchClearButtonElement = document.querySelector('.search__clear');
+    let articles;
     
     searchFormElement.addEventListener('submit', event => searchFunction(event));
+    searchClearButtonElement.addEventListener('click', () => clearSearchFunction())
     
     const searchFunction = event => {
-        const articles = document.querySelectorAll('.Card');
+        articles = document.querySelectorAll('.Card');
         event.preventDefault();
         if(inputElement.value){
             let search = inputElement.value.toLocaleLowerCase();
@@ -18,7 +21,14 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
             })
         } else {
-            articles.forEach(article => article.classList.remove('hidden'));
+            articles.forEach(article => article.classList.add('hidden'));
         }
+        searchClearButtonElement.style.display = 'block';
     }
+    const clearSearchFunction = () => {
+        inputElement.value = '';
+        let hidden = document.querySelectorAll('.hidden');
+        hidden.forEach(article => article.classList.remove('hidden'));
+        searchClearButtonElement.style.display = 'none';
+        }
 })
