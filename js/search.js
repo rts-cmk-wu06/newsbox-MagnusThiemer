@@ -27,8 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     const clearSearchFunction = () => {
         inputElement.value = '';
-        let hidden = document.querySelectorAll('.hidden');
-        hidden.forEach(article => article.classList.remove('hidden'));
+        articles.forEach(article => article.classList.remove('hidden'));
         searchClearButtonElement.style.display = 'none';
         }
 })

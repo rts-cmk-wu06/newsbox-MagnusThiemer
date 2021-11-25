@@ -38,8 +38,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   var clearSearchFunction = function clearSearchFunction() {
     inputElement.value = '';
-    var hidden = document.querySelectorAll('.hidden');
-    hidden.forEach(function (article) {
+    articles.forEach(function (article) {
       return article.classList.remove('hidden');
     });
     searchClearButtonElement.style.display = 'none';
