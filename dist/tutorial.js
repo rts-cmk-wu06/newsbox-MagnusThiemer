@@ -24,22 +24,7 @@ window.addEventListener('DOMContentLoaded', function () {
     var iToggle = document.createElement('i');
     iToggle.classList.add('tutorial__toggle', 'fas', 'fa-hand-pointer', 'animate__animated');
     var i = 0;
-
-    function loopFunction() {
-      setTimeout(function () {
-        i++;
-        iToggle.style.transform = 'scale(0.8)';
-        setTimeout(function () {
-          iToggle.style.transform = 'scale(1)';
-        }, 500);
-
-        if (i < times) {
-          loopFunction();
-        }
-      }, 4000);
-    }
-
-    loopFunction();
+    loopFunctionClick(iToggle, i);
     var pToggleDescription = document.createElement('p');
     pToggleDescription.classList.add('tutorial__descriptionToggle');
     pToggleDescription.textContent = 'Show and hide news categories';
@@ -52,34 +37,103 @@ window.addEventListener('DOMContentLoaded', function () {
   ;
 
   function swipeToSaveTutorial() {
-    var skipButton = document.querySelectorAll('#skipButtonElement');
+    var skipButton = document.querySelector('#skipButtonElement');
     var container = document.querySelector('.tutorial__container');
     document.querySelector('.tutorial__descriptionToggle').remove();
     document.querySelector('.tutorial__toggle').remove();
     var iSwipe = document.createElement('i');
     iSwipe.classList.add('tutorial__swipe', 'fas', 'fa-hand-pointer', 'animate__animated');
     var i = 0;
-
-    function loopFunctionSwipe() {
-      setTimeout(function () {
-        i++;
-        iSwipe.style.transform = 'translateX(-3rem)';
-        setTimeout(function () {
-          iSwipe.style.transform = 'translateX(0)';
-        }, 500);
-
-        if (i < times) {
-          loopFunctionSwipe();
-        }
-      }, 2000);
-    }
-
-    loopFunctionSwipe();
+    loopFunctionSwipe(iSwipe, i);
     var pSwipeDescription = document.createElement('p');
     pSwipeDescription.classList.add('tutorial__descriptionSwipe');
     pSwipeDescription.textContent = 'Swipe to save articles to archive';
     container.appendChild(iSwipe);
     container.appendChild(pSwipeDescription);
-    console.log('hello');
+    skipButton.addEventListener('click', function () {
+      return swipeToUpdateTutorial();
+    });
+  }
+
+  function swipeToUpdateTutorial() {
+    var skipButton = document.querySelector('#skipButtonElement');
+    var container = document.querySelector('.tutorial__container');
+    document.querySelector('.tutorial__swipe').remove();
+    document.querySelector('.tutorial__descriptionSwipe').remove();
+    var iSwipeDown = document.createElement('i');
+    iSwipeDown.classList.add('tutorial__swipeDown', 'fas', 'fa-hand-pointer', 'animate__animated');
+    var i = 0;
+    loopFunctionSwipeDown(iSwipeDown, i);
+    var pSwipeDownDescription = document.createElement('p');
+    pSwipeDownDescription.classList.add('tutorial__descriptionSwipeDown');
+    pSwipeDownDescription.textContent = 'Swipe down to refresh feed';
+    container.appendChild(iSwipeDown);
+    container.appendChild(pSwipeDownDescription);
+    skipButton.addEventListener('click', function () {
+      return archiveButtonTutorial();
+    });
+  }
+
+  function archiveButtonTutorial() {
+    var skipButton = document.querySelector('#skipButtonElement');
+    var container = document.querySelector('.tutorial__container');
+    document.querySelector('.tutorial__descriptionSwipeDown').remove();
+    document.querySelector('.tutorial__swipeDown').remove();
+    var pArchiveDescription = document.createElement('p');
+    pArchiveDescription.classList.add('tutorial__descriptionArchive');
+    pArchiveDescription.textContent = 'View saved articles';
+    var iArchive = document.createElement('i');
+    iArchive.classList.add('tutorial__archive', 'fas', 'fa-hand-pointer', 'animate__animated');
+    var i = 0;
+    loopFunctionClick(iArchive, i);
+    container.appendChild(pArchiveDescription);
+    container.appendChild(iArchive);
+    skipButton.addEventListener('click', function () {
+      return document.querySelector('.tutorial__container').remove();
+    });
+  }
+
+  function loopFunctionClick(element, i) {
+    setTimeout(function () {
+      i++;
+      element.style.transform = 'scale(0.6)';
+      setTimeout(function () {
+        element.style.transform = 'scale(1)';
+      }, 500);
+
+      if (i < times) {
+        loopFunctionClick(element, i);
+      }
+    }, 2000);
+  }
+
+  ;
+
+  function loopFunctionSwipeDown(element, i) {
+    setTimeout(function () {
+      i++;
+      element.style.transform = 'translateY(5rem)';
+      setTimeout(function () {
+        element.style.transform = 'translateY(0)';
+      }, 500);
+
+      if (i < times) {
+        loopFunctionSwipeDown(element, i);
+      }
+    }, 2000);
+  }
+
+  function loopFunctionSwipe(element, i) {
+    setTimeout(function () {
+      i++;
+      element.style.transform = 'translateX(-5rem)';
+      setTimeout(function () {
+        element.style.transform = 'translateX(0)';
+      }, 500);
+
+      if (i < times) {
+        loopFunctionSwipe(element, i);
+      }
+    }, 2000);
   }
 });

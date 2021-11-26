@@ -54,4 +54,25 @@
         top: 16rem;
         right: 1.6rem;
     }
+    .tutorial__swipeDown {
+        @include tutorialHandIcon();
+        transition: ease-in 300ms;
+        top: 2rem;
+        right: 3rem;
+    }
+    .tutorial__descriptionSwipeDown {
+        @include tutorialDescription();
+        top: 4rem;
+        right: 5rem;
+    }
+    .tutorial__archive {
+        @include tutorialHandIcon();
+        top: 1.5rem;
+        left: 1.8rem;
+    }
+    .tutorial__descriptionArchive {
+        @include tutorialDescription();
+        top: 3.5rem;
+        left: 1.2rem;
+    }
 }

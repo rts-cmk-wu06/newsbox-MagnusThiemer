@@ -22,17 +22,8 @@ window.addEventListener('DOMContentLoaded', () => {
         iToggle.classList.add('tutorial__toggle', 'fas', 'fa-hand-pointer', 'animate__animated');
 
         let i = 0;
-        function loopFunction(){
-            setTimeout(function(){
-                i++;
-                iToggle.style.transform = 'scale(0.8)';
-                setTimeout(function(){iToggle.style.transform = 'scale(1)'}, 500);
-                if(i < times){
-                    loopFunction();
-                }
-            }, 4000)
-        }
-        loopFunction();
+
+        loopFunctionClick(iToggle, i);
         let pToggleDescription = document.createElement('p');
         pToggleDescription.classList.add('tutorial__descriptionToggle')
         pToggleDescription.textContent = 'Show and hide news categories';
@@ -44,7 +35,7 @@ window.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(tutorialDiv);
     };
     function swipeToSaveTutorial(){
-        let skipButton = document.querySelectorAll('#skipButtonElement');
+        let skipButton = document.querySelector('#skipButtonElement');
         let container = document.querySelector('.tutorial__container');
         document.querySelector('.tutorial__descriptionToggle').remove();
         document.querySelector('.tutorial__toggle').remove();
@@ -53,17 +44,7 @@ window.addEventListener('DOMContentLoaded', () => {
         iSwipe.classList.add('tutorial__swipe', 'fas', 'fa-hand-pointer', 'animate__animated');
 
         let i = 0;
-        function loopFunctionSwipe(){
-            setTimeout(function(){
-                i++;
-                iSwipe.style.transform = 'translateX(-3rem)';
-                setTimeout(function(){iSwipe.style.transform = 'translateX(0)'}, 500);
-                if(i < times){
-                    loopFunctionSwipe();
-                }
-            }, 2000)
-        }
-        loopFunctionSwipe();
+        loopFunctionSwipe(iSwipe, i);
 
         let pSwipeDescription = document.createElement('p');
         pSwipeDescription.classList.add('tutorial__descriptionSwipe');
@@ -71,7 +52,78 @@ window.addEventListener('DOMContentLoaded', () => {
         container.appendChild(iSwipe);
         container.appendChild(pSwipeDescription);
 
-        console.log('hello')
+        skipButton.addEventListener('click', () => swipeToUpdateTutorial())
+    }
+    function swipeToUpdateTutorial(){
+        let skipButton = document.querySelector('#skipButtonElement');
+        let container = document.querySelector('.tutorial__container');
+        document.querySelector('.tutorial__swipe').remove();
+        document.querySelector('.tutorial__descriptionSwipe').remove();
+
+        let iSwipeDown = document.createElement('i');
+        iSwipeDown.classList.add('tutorial__swipeDown', 'fas', 'fa-hand-pointer', 'animate__animated');
+
+        let i = 0;
+        loopFunctionSwipeDown(iSwipeDown, i);
+
+        let pSwipeDownDescription = document.createElement('p');
+        pSwipeDownDescription.classList.add('tutorial__descriptionSwipeDown');
+        pSwipeDownDescription.textContent = 'Swipe down to refresh feed';
+        container.appendChild(iSwipeDown);
+        container.appendChild(pSwipeDownDescription);
+        skipButton.addEventListener('click', () => archiveButtonTutorial());
+    }
+    function archiveButtonTutorial(){
+        let skipButton = document.querySelector('#skipButtonElement');
+        let container = document.querySelector('.tutorial__container');
+        document.querySelector('.tutorial__descriptionSwipeDown').remove();
+        document.querySelector('.tutorial__swipeDown').remove();
+
+        let pArchiveDescription = document.createElement('p');
+        pArchiveDescription.classList.add('tutorial__descriptionArchive');
+        pArchiveDescription.textContent = 'View saved articles';
+
+        let iArchive = document.createElement('i');
+        iArchive.classList.add('tutorial__archive', 'fas', 'fa-hand-pointer', 'animate__animated');
+        let i = 0;
+        loopFunctionClick(iArchive, i);
+
+        container.appendChild(pArchiveDescription);
+        container.appendChild(iArchive);
+
+        skipButton.addEventListener('click', () => document.querySelector('.tutorial__container').remove())
+    }
+
+
+    function loopFunctionClick(element, i){
+        setTimeout(function(){
+            i++;
+            element.style.transform = 'scale(0.6)';
+            setTimeout(function(){element.style.transform = 'scale(1)'}, 500);
+            if(i < times){
+                loopFunctionClick(element, i);
+            }
+        }, 2000)
+    };
+    function loopFunctionSwipeDown(element, i){
+        setTimeout(function(){
+            i++;
+            element.style.transform = 'translateY(5rem)';
+            setTimeout(function(){element.style.transform = 'translateY(0)'}, 500);
+            if(i < times){
+                loopFunctionSwipeDown(element, i);
+            }
+        }, 2000)
+    }
+    function loopFunctionSwipe(element, i){
+        setTimeout(function(){
+            i++;
+            element.style.transform = 'translateX(-5rem)';
+            setTimeout(function(){element.style.transform = 'translateX(0)'}, 500);
+            if(i < times){
+                loopFunctionSwipe(element, i);
+            }
+        }, 2000)
     }
 
 })
