@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-    let categories = ['world', 'science', 'sports', 'business', 'arts'];
+    let categories = ['world'/* , 'science', 'sports', 'business', 'arts' */];
 
     generateNewsArticles(categories);
 

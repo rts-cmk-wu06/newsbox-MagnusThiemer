@@ -1,3 +1,15 @@
+@mixin tutorialDescription{
+    color: $snow;
+    position: absolute;
+    background-color: $rust;
+    padding: 0.4rem 0.6rem;
+}
+@mixin tutorialHandIcon{
+    position: absolute;
+    font-size: 2rem;
+    color: $snow;
+}
+
 .Tutorial {
     height: 100vh;
     background: rgba($color: $onyx, $alpha: 0.5);
@@ -7,23 +19,70 @@
 
 .tutorial__container {
     position: absolute;
-    display: flex;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    right: 1rem;
-    top: 2rem;
-    z-index: 10;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba($color: $onyx, $alpha: 0.5);
     transition: all ease 200ms;
-    i {
-        text-align: left;
+    .tutorial__skip-button {
+        text-transform: uppercase;
         color: $rust;
         font-size: 1.8rem;
+        font-weight: bold;
+        padding: 0.6rem 2rem;
+        border-radius: 2rem;
+        border: 5px solid $rust;
     }
-    p {
-        background-color: $rust;
-        color: $snow;
-        padding: 0.5rem 0.3rem;
-        width: 100%;
-        text-align: center;
+    .tutorial__toggle {
+        @include tutorialHandIcon();
+        top: 10rem;
+        right: 1.6rem;
+    }
+    .tutorial__descriptionToggle {
+        @include tutorialDescription();
+        top: 12rem;
+        right: 1rem;
+    }
+    .tutorial__swipe {
+        @include tutorialHandIcon();
+        transition: ease-in 300ms;
+        top: 14rem;
+        right: 2rem;
+    }
+    .tutorial__descriptionSwipe {
+        @include tutorialDescription();
+        top: 16rem;
+        right: 1.6rem;
+    }
+    .tutorial__swipeDown {
+        @include tutorialHandIcon();
+        transition: ease-in 300ms;
+        top: 2rem;
+        right: 3rem;
+    }
+    .tutorial__descriptionSwipeDown {
+        @include tutorialDescription();
+        top: 4rem;
+        right: 5rem;
+    }
+    .tutorial__archive {
+        @include tutorialHandIcon();
+        top: 1.5rem;
+        left: 1.8rem;
+    }
+    .tutorial__descriptionArchive {
+        @include tutorialDescription();
+        top: 3.5rem;
+        left: 1.2rem;
+    }
+    .tutorial__settings {
+        @include tutorialHandIcon();
+        top: 1.5rem;
+        right: 1.8rem;
+    }
+    .tutorial__descriptionSettings {
+        @include tutorialDescription();
+        top: 3.5rem;
+        right: 1.2rem;
     }
 }
