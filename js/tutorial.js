@@ -91,7 +91,30 @@ window.addEventListener('DOMContentLoaded', () => {
         container.appendChild(pArchiveDescription);
         container.appendChild(iArchive);
 
-        skipButton.addEventListener('click', () => document.querySelector('.tutorial__container').remove())
+        skipButton.addEventListener('click', () => settingsButtonTutorial())
+    }
+    function settingsButtonTutorial(){
+        let skipButton = document.querySelector('#skipButtonElement');
+        let container = document.querySelector('.tutorial__container');
+        document.querySelector('.tutorial__archive').remove();
+        document.querySelector('.tutorial__descriptionArchive').remove();
+
+        let pSettingsDescription = document.createElement('p');
+        pSettingsDescription.classList.add('tutorial__descriptionSettings');
+        pSettingsDescription.textContent = 'Manage personal settings';
+
+        let iSettings = document.createElement('i');
+        iSettings.classList.add('tutorial__settings', 'fas', 'fa-hand-pointer', 'animate__animated');
+        let i = 0;
+        loopFunctionClick(iSettings, i);
+
+        container.appendChild(pSettingsDescription);
+        container.appendChild(iSettings);
+
+        skipButton.addEventListener('click', () => {
+            document.querySelector('.tutorial__container').remove()
+            document.querySelector('#tutorialScriptElement').src = '';
+        })
     }
 
 

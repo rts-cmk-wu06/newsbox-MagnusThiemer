@@ -75,4 +75,14 @@
         top: 3.5rem;
         left: 1.2rem;
     }
+    .tutorial__settings {
+        @include tutorialHandIcon();
+        top: 1.5rem;
+        right: 1.8rem;
+    }
+    .tutorial__descriptionSettings {
+        @include tutorialDescription();
+        top: 3.5rem;
+        right: 1.2rem;
+    }
 }

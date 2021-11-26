@@ -89,7 +89,27 @@ window.addEventListener('DOMContentLoaded', function () {
     container.appendChild(pArchiveDescription);
     container.appendChild(iArchive);
     skipButton.addEventListener('click', function () {
-      return document.querySelector('.tutorial__container').remove();
+      return settingsButtonTutorial();
+    });
+  }
+
+  function settingsButtonTutorial() {
+    var skipButton = document.querySelector('#skipButtonElement');
+    var container = document.querySelector('.tutorial__container');
+    document.querySelector('.tutorial__archive').remove();
+    document.querySelector('.tutorial__descriptionArchive').remove();
+    var pSettingsDescription = document.createElement('p');
+    pSettingsDescription.classList.add('tutorial__descriptionSettings');
+    pSettingsDescription.textContent = 'Manage personal settings';
+    var iSettings = document.createElement('i');
+    iSettings.classList.add('tutorial__settings', 'fas', 'fa-hand-pointer', 'animate__animated');
+    var i = 0;
+    loopFunctionClick(iSettings, i);
+    container.appendChild(pSettingsDescription);
+    container.appendChild(iSettings);
+    skipButton.addEventListener('click', function () {
+      document.querySelector('.tutorial__container').remove();
+      document.querySelector('#tutorialScriptElement').src = '';
     });
   }
 
