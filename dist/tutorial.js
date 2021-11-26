@@ -2,37 +2,84 @@
 
 window.addEventListener('DOMContentLoaded', function () {
   localStorage.clear();
+  var times = 7;
 
   if (!localStorage.getItem('isReturnVisitor')) {
     /* only runs this code for first time visitors */
     localStorage.setItem('isReturnVisitor', true);
-    var body = document.querySelector('body');
+    var tutorialContainer;
     categoryToggleTutorial();
   }
 
   function categoryToggleTutorial() {
-    var container = document.querySelector('.categories__container');
-    var arrow = container.querySelector('.arrow');
     var tutorialDiv = document.createElement('div');
-    var i = document.createElement('i');
+    tutorialDiv.classList.add('tutorial__container', 'flex-row', 'center', 'align-center');
     var p = document.createElement('p');
-    tutorialDiv.classList.add('tutorial__container');
-    i.classList.add('far', 'fa-hand-pointer');
-    p.classList.add('highlight__p');
-    p.textContent = 'Show and hide news categories';
-    p.onclick = 'none';
-    i.onclick = 'none';
-    i.classList.add('animate__animated', 'animate__zoomOut');
-    setTimeout(function () {
-      i.classList.remove('animate__zoomOut');
-    }, 200);
-    tutorialDiv.appendChild(i);
-    tutorialDiv.appendChild(p);
-    tutorialDiv.addEventListener('click', function (event) {
-      return event.target.parentNode.removeChild(event.target);
+    p.textContent = 'Skip';
+    p.classList.add('tutorial__skip-button');
+    p.id = 'skipButtonElement';
+    p.addEventListener('click', function () {
+      return swipeToSaveTutorial();
     });
-    /*         tutorialDiv.addEventListener('click', () => console.log('hello')) */
+    var iToggle = document.createElement('i');
+    iToggle.classList.add('tutorial__toggle', 'fas', 'fa-hand-pointer', 'animate__animated');
+    var i = 0;
 
-    container.appendChild(tutorialDiv);
+    function loopFunction() {
+      setTimeout(function () {
+        i++;
+        iToggle.style.transform = 'scale(0.8)';
+        setTimeout(function () {
+          iToggle.style.transform = 'scale(1)';
+        }, 500);
+
+        if (i < times) {
+          loopFunction();
+        }
+      }, 4000);
+    }
+
+    loopFunction();
+    var pToggleDescription = document.createElement('p');
+    pToggleDescription.classList.add('tutorial__descriptionToggle');
+    pToggleDescription.textContent = 'Show and hide news categories';
+    tutorialDiv.appendChild(iToggle);
+    tutorialDiv.appendChild(pToggleDescription);
+    tutorialDiv.appendChild(p);
+    document.body.appendChild(tutorialDiv);
+  }
+
+  ;
+
+  function swipeToSaveTutorial() {
+    var skipButton = document.querySelectorAll('#skipButtonElement');
+    var container = document.querySelector('.tutorial__container');
+    document.querySelector('.tutorial__descriptionToggle').remove();
+    document.querySelector('.tutorial__toggle').remove();
+    var iSwipe = document.createElement('i');
+    iSwipe.classList.add('tutorial__swipe', 'fas', 'fa-hand-pointer', 'animate__animated');
+    var i = 0;
+
+    function loopFunctionSwipe() {
+      setTimeout(function () {
+        i++;
+        iSwipe.style.transform = 'translateX(-3rem)';
+        setTimeout(function () {
+          iSwipe.style.transform = 'translateX(0)';
+        }, 500);
+
+        if (i < times) {
+          loopFunctionSwipe();
+        }
+      }, 2000);
+    }
+
+    loopFunctionSwipe();
+    var pSwipeDescription = document.createElement('p');
+    pSwipeDescription.classList.add('tutorial__descriptionSwipe');
+    pSwipeDescription.textContent = 'Swipe to save articles to archive';
+    container.appendChild(iSwipe);
+    container.appendChild(pSwipeDescription);
+    console.log('hello');
   }
 });

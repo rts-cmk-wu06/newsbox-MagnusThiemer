@@ -1,33 +1,77 @@
 window.addEventListener('DOMContentLoaded', () => {
     localStorage.clear();
+    const times = 7;
     if(!localStorage.getItem('isReturnVisitor')){
         /* only runs this code for first time visitors */
         localStorage.setItem('isReturnVisitor', true);
-
-        const body = document.querySelector('body');
+        let tutorialContainer;
+        
         categoryToggleTutorial();
     }
     function categoryToggleTutorial(){
-        let container = document.querySelector('.categories__container');
-        let arrow = container.querySelector('.arrow');
         let tutorialDiv = document.createElement('div');
-        let i = document.createElement('i');
+        tutorialDiv.classList.add('tutorial__container', 'flex-row', 'center', 'align-center');
         let p = document.createElement('p');
+        p.textContent = 'Skip';
+        p.classList.add('tutorial__skip-button');
+        p.id = 'skipButtonElement'
+        p.addEventListener('click', () => swipeToSaveTutorial());
+        
+        
+        let iToggle = document.createElement('i');
+        iToggle.classList.add('tutorial__toggle', 'fas', 'fa-hand-pointer', 'animate__animated');
 
-        tutorialDiv.classList.add('tutorial__container')
-        i.classList.add('far', 'fa-hand-pointer');
-        p.classList.add('highlight__p');
-        p.textContent = 'Show and hide news categories';
-        p.onclick = 'none';
-        i.onclick = 'none';
-        i.classList.add('animate__animated', 'animate__zoomOut');
-        setTimeout(() => {
-            i.classList.remove('animate__zoomOut');
-        }, 200)
-        tutorialDiv.appendChild(i);
+        let i = 0;
+        function loopFunction(){
+            setTimeout(function(){
+                i++;
+                iToggle.style.transform = 'scale(0.8)';
+                setTimeout(function(){iToggle.style.transform = 'scale(1)'}, 500);
+                if(i < times){
+                    loopFunction();
+                }
+            }, 4000)
+        }
+        loopFunction();
+        let pToggleDescription = document.createElement('p');
+        pToggleDescription.classList.add('tutorial__descriptionToggle')
+        pToggleDescription.textContent = 'Show and hide news categories';
+
+        tutorialDiv.appendChild(iToggle);
+        tutorialDiv.appendChild(pToggleDescription);
         tutorialDiv.appendChild(p);
-        tutorialDiv.addEventListener('click', event => event.target.parentNode.removeChild(event.target))
-/*         tutorialDiv.addEventListener('click', () => console.log('hello')) */
-        container.appendChild(tutorialDiv);
+
+        document.body.appendChild(tutorialDiv);
+    };
+    function swipeToSaveTutorial(){
+        let skipButton = document.querySelectorAll('#skipButtonElement');
+        let container = document.querySelector('.tutorial__container');
+        document.querySelector('.tutorial__descriptionToggle').remove();
+        document.querySelector('.tutorial__toggle').remove();
+
+        let iSwipe = document.createElement('i');
+        iSwipe.classList.add('tutorial__swipe', 'fas', 'fa-hand-pointer', 'animate__animated');
+
+        let i = 0;
+        function loopFunctionSwipe(){
+            setTimeout(function(){
+                i++;
+                iSwipe.style.transform = 'translateX(-3rem)';
+                setTimeout(function(){iSwipe.style.transform = 'translateX(0)'}, 500);
+                if(i < times){
+                    loopFunctionSwipe();
+                }
+            }, 2000)
+        }
+        loopFunctionSwipe();
+
+        let pSwipeDescription = document.createElement('p');
+        pSwipeDescription.classList.add('tutorial__descriptionSwipe');
+        pSwipeDescription.textContent = 'Swipe to save articles to archive'
+        container.appendChild(iSwipe);
+        container.appendChild(pSwipeDescription);
+
+        console.log('hello')
     }
+
 })
