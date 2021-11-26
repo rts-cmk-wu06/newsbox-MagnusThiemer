@@ -7,6 +7,7 @@ window.addEventListener('DOMContentLoaded', function () {
   });
 
   function generateArchiveList(item) {
+    console.log(item);
     var li = document.createElement('li');
     li.id = item.id;
     li.classList.add(item["class"]);

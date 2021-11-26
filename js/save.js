@@ -19,8 +19,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
         let articleObject = {
             id: article.id,
-            section: article.section,
-            subsection: article.subsection,
+            section: article.getAttribute('section'),
+            subsection: article.getAttribute('subsection'),
             parentId: article.parentNode.id,
             class: article.classList[0],
             innerHTML: article.innerHTML

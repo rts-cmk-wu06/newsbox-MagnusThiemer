@@ -1,0 +1,29 @@
+.Tutorial {
+    height: 100vh;
+    background: rgba($color: $onyx, $alpha: 0.5);
+    position: absolute;
+    top: 0;
+}
+
+.tutorial__container {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    right: 1rem;
+    top: 2rem;
+    z-index: 10;
+    transition: all ease 200ms;
+    i {
+        text-align: left;
+        color: $rust;
+        font-size: 1.8rem;
+    }
+    p {
+        background-color: $rust;
+        color: $snow;
+        padding: 0.5rem 0.3rem;
+        width: 100%;
+        text-align: center;
+    }
+}

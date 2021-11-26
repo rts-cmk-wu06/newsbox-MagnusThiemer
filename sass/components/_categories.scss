@@ -6,6 +6,7 @@
 .arrow {
     color: $onyx;
     transition: all 300ms;
+    position: relative;
 }
 
 .categories__container{
@@ -15,6 +16,7 @@
     padding-right: 1.5rem;
     border-top: 1px solid $ice;
     border-bottom: 1px solid $ice;
+    position: relative;
     h2 {
         color: $onyx;
         font-size: 1.2rem;

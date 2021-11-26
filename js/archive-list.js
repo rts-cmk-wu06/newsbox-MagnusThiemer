@@ -4,6 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
     savedArticles.forEach(item => generateArchiveList(item))
 
     function generateArchiveList(item){
+        console.log(item);
         let li = document.createElement('li');
         li.id = item.id;
         li.classList.add(item.class);
