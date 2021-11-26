@@ -2,7 +2,7 @@
 
 window.addEventListener('DOMContentLoaded', function () {
   localStorage.clear();
-  var times = 7;
+  var times = 20;
 
   if (!localStorage.getItem('isReturnVisitor')) {
     /* only runs this code for first time visitors */
@@ -124,7 +124,7 @@ window.addEventListener('DOMContentLoaded', function () {
       if (i < times) {
         loopFunctionClick(element, i);
       }
-    }, 2000);
+    }, 1000);
   }
 
   ;
@@ -140,7 +140,7 @@ window.addEventListener('DOMContentLoaded', function () {
       if (i < times) {
         loopFunctionSwipeDown(element, i);
       }
-    }, 2000);
+    }, 1000);
   }
 
   function loopFunctionSwipe(element, i) {
@@ -154,6 +154,6 @@ window.addEventListener('DOMContentLoaded', function () {
       if (i < times) {
         loopFunctionSwipe(element, i);
       }
-    }, 2000);
+    }, 1000);
   }
 });

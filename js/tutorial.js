@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
     localStorage.clear();
-    const times = 7;
+    const times = 20;
     if(!localStorage.getItem('isReturnVisitor')){
         /* only runs this code for first time visitors */
         localStorage.setItem('isReturnVisitor', true);
@@ -126,7 +126,7 @@ window.addEventListener('DOMContentLoaded', () => {
             if(i < times){
                 loopFunctionClick(element, i);
             }
-        }, 2000)
+        }, 1000)
     };
     function loopFunctionSwipeDown(element, i){
         setTimeout(function(){
@@ -136,7 +136,7 @@ window.addEventListener('DOMContentLoaded', () => {
             if(i < times){
                 loopFunctionSwipeDown(element, i);
             }
-        }, 2000)
+        }, 1000)
     }
     function loopFunctionSwipe(element, i){
         setTimeout(function(){
@@ -146,7 +146,7 @@ window.addEventListener('DOMContentLoaded', () => {
             if(i < times){
                 loopFunctionSwipe(element, i);
             }
-        }, 2000)
+        }, 1000)
     }
 
 })
