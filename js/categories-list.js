@@ -33,19 +33,11 @@ window.addEventListener('DOMContentLoaded', () => {
                         imgContainer.style.background = 'linear-gradient(0deg, rgba(110,140,160,1) 0%, rgba(135,188,191,1) 100%)';
                         let img = document.createElement('img');
                         
-                        /* RESIZE IMAGE WITH RESMUSH API */
                         if(newsObject.multimedia){
                             let imageUrl = newsObject.multimedia[0].url; 
                             img.src = imageUrl;
-                            let resmushUrl = 'http://api.resmush.it/ws.php';
-/*                             axios.get(`${resmushUrl}?img=${imageUrl}&qlty=10`)
-                                .then(data => {
-                                    img.src = data.data.dest;
-                                }) */
                             imgContainer.appendChild(img);
-                        } /* else {
-                        } */
-    
+                        }    
                         let article = document.createElement('article');
                         let headline = document.createElement('h3');
                         let p = document.createElement('p');
