@@ -32,15 +32,16 @@ window.addEventListener('DOMContentLoaded', () => {
                         imgContainer.classList.add('card__img-container')
                         imgContainer.style.background = 'linear-gradient(0deg, rgba(110,140,160,1) 0%, rgba(135,188,191,1) 100%)';
                         let img = document.createElement('img');
-    
+                        
                         /* RESIZE IMAGE WITH RESMUSH API */
                         if(newsObject.multimedia){
-                            let resmushUrl = 'http://api.resmush.it/ws.php';
                             let imageUrl = newsObject.multimedia[0].url; 
-                            axios.get(`${resmushUrl}?img=${imageUrl}&qlty=10`)
+                            img.src = imageUrl;
+                            let resmushUrl = 'http://api.resmush.it/ws.php';
+/*                             axios.get(`${resmushUrl}?img=${imageUrl}&qlty=10`)
                                 .then(data => {
                                     img.src = data.data.dest;
-                                })
+                                }) */
                             imgContainer.appendChild(img);
                         } /* else {
                         } */
