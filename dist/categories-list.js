@@ -28,14 +28,21 @@ window.addEventListener('DOMContentLoaded', function () {
             a.classList.add('flex-row', 'align-center');
             var imgContainer = document.createElement('div');
             imgContainer.classList.add('card__img-container');
+            imgContainer.style.background = 'linear-gradient(0deg, rgba(110,140,160,1) 0%, rgba(135,188,191,1) 100%)';
             var img = document.createElement('img');
+            /* RESIZE IMAGE WITH RESMUSH API */
 
             if (newsObject.multimedia) {
-              img.src = newsObject.multimedia[0].url;
+              var resmushUrl = 'http://api.resmush.it/ws.php';
+              var imageUrl = newsObject.multimedia[0].url;
+              axios.get("".concat(resmushUrl, "?img=").concat(imageUrl, "&qlty=10")).then(function (data) {
+                img.src = data.data.dest;
+              });
               imgContainer.appendChild(img);
-            } else {
-              imgContainer.style.background = 'linear-gradient(0deg, rgba(110,140,160,1) 0%, rgba(135,188,191,1) 100%)';
             }
+            /* else {
+            } */
+
 
             var article = document.createElement('article');
             var headline = document.createElement('h3');
