@@ -1,9 +1,7 @@
 "use strict";
 
 window.addEventListener('DOMContentLoaded', function () {
-  var categories = ['world'
-  /* , 'science', 'sports', 'business', 'arts' */
-  ];
+  var categories = ['world', 'science', 'sports', 'business', 'arts'];
   generateNewsArticles(categories);
 
   function generateNewsArticles(array) {

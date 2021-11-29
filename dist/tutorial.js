@@ -1,12 +1,10 @@
 "use strict";
 
 window.addEventListener('DOMContentLoaded', function () {
-  localStorage.clear();
   var times = 20;
 
   if (!localStorage.getItem('isReturnVisitor')) {
     /* only runs this code for first time visitors */
-    localStorage.setItem('isReturnVisitor', true);
     var tutorialContainer;
     categoryToggleTutorial();
   }
@@ -39,17 +37,17 @@ window.addEventListener('DOMContentLoaded', function () {
   function swipeToSaveTutorial() {
     var skipButton = document.querySelector('#skipButtonElement');
     var container = document.querySelector('.tutorial__container');
-    document.querySelector('.tutorial__descriptionToggle').remove();
-    document.querySelector('.tutorial__toggle').remove();
-    var iSwipe = document.createElement('i');
-    iSwipe.classList.add('tutorial__swipe', 'fas', 'fa-hand-pointer', 'animate__animated');
+    var p = document.querySelector('.tutorial__descriptionToggle');
+    var iconToggle = document.querySelector('.tutorial__toggle');
+    iconToggle.style.display = 'none';
+    var icon = document.createElement('i');
+    icon.classList.add('tutorial__swipe', 'fas', 'fa-hand-pointer', 'animate__animated');
+    p.classList.remove('tutorial__descriptionToggle');
     var i = 0;
-    loopFunctionSwipe(iSwipe, i);
-    var pSwipeDescription = document.createElement('p');
-    pSwipeDescription.classList.add('tutorial__descriptionSwipe');
-    pSwipeDescription.textContent = 'Swipe to save articles to archive';
-    container.appendChild(iSwipe);
-    container.appendChild(pSwipeDescription);
+    loopFunctionSwipe(icon, i);
+    p.classList.add('tutorial__descriptionSwipe');
+    p.textContent = 'Swipe to save articles to archive';
+    container.appendChild(icon);
     skipButton.addEventListener('click', function () {
       return swipeToUpdateTutorial();
     });
@@ -108,6 +106,7 @@ window.addEventListener('DOMContentLoaded', function () {
     container.appendChild(pSettingsDescription);
     container.appendChild(iSettings);
     skipButton.addEventListener('click', function () {
+      localStorage.setItem('isReturnVisitor', true);
       document.querySelector('.tutorial__container').remove();
       document.querySelector('#tutorialScriptElement').src = '';
     });
@@ -124,7 +123,7 @@ window.addEventListener('DOMContentLoaded', function () {
       if (i < times) {
         loopFunctionClick(element, i);
       }
-    }, 1000);
+    }, 1500);
   }
 
   ;
@@ -140,7 +139,7 @@ window.addEventListener('DOMContentLoaded', function () {
       if (i < times) {
         loopFunctionSwipeDown(element, i);
       }
-    }, 1000);
+    }, 1500);
   }
 
   function loopFunctionSwipe(element, i) {
@@ -154,6 +153,6 @@ window.addEventListener('DOMContentLoaded', function () {
       if (i < times) {
         loopFunctionSwipe(element, i);
       }
-    }, 1000);
+    }, 1500);
   }
 });
